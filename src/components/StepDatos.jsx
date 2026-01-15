@@ -2,26 +2,49 @@ import { useState } from 'react';
 import '../styles/PreCita.css';
 
 const StepDatos = ({ onNext, onBack }) => {
+    // 1. Consolida datos en un solo objeto de estado
     const [formData, setFormData] = useState({
         name: '',
         dni: '',
-        phone: ''
+        phone: '',
+        email: ''
     });
 
     const [errors, setErrors] = useState({});
 
+    // 2. Función de validación unificada
     const validate = () => {
         const newErrors = {};
-        if (formData.name.length < 3) newErrors.name = "Ingrese nombre completo";
-        if (!/^\d{8}$/.test(formData.dni)) newErrors.dni = "DNI debe tener 8 dígitos";
-        if (!/^9\d{8}$/.test(formData.phone)) newErrors.phone = "Celular debe empezar con 9 y tener 9 dígitos";
+        
+        // Validación Nombre
+        if (formData.name.trim().length < 3) {
+            newErrors.name = "Ingrese su nombre completo";
+        }
+        
+        // Validación DNI (8 dígitos)
+        if (!/^\d{8}$/.test(formData.dni)) {
+            newErrors.dni = "El DNI debe tener 8 dígitos";
+        }
+        
+        // Validación Celular (Empieza con 9 y tiene 9 dígitos)
+        if (!/^9\d{8}$/.test(formData.phone)) {
+            newErrors.phone = "El celular debe empezar con 9 y tener 9 dígitos";
+        }
+
+        // Validación Email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            newErrors.email = "Ingrese un correo electrónico válido";
+        }
         
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
+    // 3. Manejador de confirmación único
     const handleConfirm = () => {
         if (validate()) {
+            // Enviamos clientInfo con la data consolidada
             onNext({ clientInfo: formData });
         }
     };
@@ -69,9 +92,21 @@ const StepDatos = ({ onNext, onBack }) => {
                 {errors.phone && <span className="error-text">{errors.phone}</span>}
             </div>
 
+            <div className="form-group">
+                <label className="input-label">Correo Electrónico</label>
+                <input 
+                    type="email"
+                    className={`form-input ${errors.email ? 'input-error' : ''}`}
+                    placeholder="ejemplo@correo.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                />
+                {errors.email && <span className="error-text">{errors.email}</span>}
+            </div>
+
             <div className="button-group">
                 <button className="btn-secondary" onClick={onBack}>Atrás</button>
-                <button className="btn-primary" onClick={handleConfirm}>Validar Datos</button>
+                <button className="btn-primary" onClick={handleConfirm}>Continuar</button>
             </div>
         </div>
     );
