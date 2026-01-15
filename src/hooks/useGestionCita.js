@@ -7,37 +7,40 @@ export const usePreCita = () => {
     const [loading, setLoading] = useState(false);
     const [appointmentData, setAppointmentData] = useState({
         serviceId: '',
-        clientInfo: { name: '', dni: '', phone: '' },
+        clientInfo: { name: '', dni: '', phone: '', email: '' }, // Añadido email aquí
         date: '',
         time: '',
-        requirementsConfirmed: false
+        requirementsConfirmed: false,
+        detailedRequirements: [] // Para guardar qué documentos se gestionan
     });
 
-    // Función para avanzar y guardar datos parciales
     const nextStep = (newData = {}) => {
         setAppointmentData(prev => ({ ...prev, ...newData }));
         setStep(s => s + 1);
     };
 
-    // Función para retroceder
     const prevStep = () => {
         setStep(s => (s > 1 ? s - 1 : s));
     };
 
-    // Envío final a Firebase Firestore
     const submitToFirebase = async () => {
         setLoading(true);
         try {
-            // Guardar en la colección "precitas"
+            // 1. Guardar en Firestore
             await addDoc(collection(db, "precitas"), {
                 ...appointmentData,
                 createdAt: serverTimestamp(),
                 status: 'pending',
-                // Metadata para notaría
                 source: 'web-app-trujillo'
             });
             
-            // Avanzar al Paso 6, mensaje final
+            // 2. LIMPIEZA DE LOCALSTORAGE
+            // Borra los checks de requisitos para que el navegador quede limpio
+            const sId = appointmentData.serviceId;
+            localStorage.removeItem(`checks-${sId}`);
+            localStorage.removeItem(`managed-${sId}`);
+            
+            // 3. Avanzar al paso de éxito
             setStep(6); 
         } catch (e) {
             console.error("Error al guardar la pre-cita: ", e);
