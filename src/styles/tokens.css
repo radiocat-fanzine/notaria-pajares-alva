@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
 :root {
     /* Brand Colors (Updated Palette) */
-    --color-primary: #3E3764;        /* Notary Blue */
+    --color-primary: #2D3968;        /* Notary Blue */
     --color-primary-light: #7B89A8;  /* Steel Blue  */
     --color-secondary: #D0D5D6;      /* Neutral Gray */
     --color-surface: #F5F5F0;        /* Bone / Off-white */
@@ -25,7 +27,7 @@
     /* UI TOKENS: ESTRUCTURA */
     --color-border-light: #eeeeee;  /* Para separadores (hr) y bordes de cards */
     --color-text-muted: #666666;    /* Para descripciones secundarias */
-    
+
     /* Typography */
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
 
@@ -46,7 +48,15 @@
     /* Effects */
     --shadow-sm: 0 2px 4px rgba(62, 55, 100, 0.05);
     --shadow-md: 0 4px 12px rgba(62, 55, 100, 0.1);
-}
+
+    /* Typography Update */
+    --font-serif: 'Playfair Display', serif; /* Para títulos institucionales */
+
+    /* UI Tokens: Navbar (Basados en tus Brand Colors) */
+    --nav-bg: var(--color-primary);       /* #3E3764 */
+    --nav-text: var(--color-secondary);   /* #D0D5D6 (Gris claro que pediste) */
+    --nav-text-active: var(--color-white);
+    }
 
 /* Global Reset & Base */
 body {

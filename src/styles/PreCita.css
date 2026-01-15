@@ -425,3 +425,42 @@
     display: block;
     text-align: center;
 }
+
+/* --- Estilos para el Resumen de Gestión en Success --- */
+.management-summary {
+    background-color: var(--color-info-bg);
+    padding: var(--space-md);
+    border-radius: 6px;
+    margin: var(--space-md) 0;
+    text-align: left;
+    border: 1px solid rgba(21, 101, 192, 0.1); /* Sutil borde azul */
+}
+
+.management-summary-title {
+    font-size: 0.75rem;
+    color: var(--color-info);
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.management-summary-list {
+    list-style: none;
+    padding: 0 0 0 5px;
+    margin: 0 0 12px 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--color-primary);
+}
+
+.management-summary-list li {
+    margin-bottom: 4px;
+}
+
+.management-total-row {
+    border-top: 1px dashed var(--color-info);
+    padding-top: 8px;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+}

@@ -31,16 +31,17 @@ const StepSuccess = ({ data }) => {
                 
                 {managedDocs.length > 0 && (
                     <div className="management-summary">
-                        <hr style={{ borderTop: '1px solid var(--color-border-light)', margin: '12px 0' }} />
-                        <p style={{ fontSize: '0.8rem', color: 'var(--color-info)', fontWeight: 'bold' }}>
-                            DOCUMENTOS PARA GESTIÓN:
+                        <p className="management-summary-title">
+                            Documentos para Gestión Notarial:
                         </p>
-                        <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.8rem' }}>
+                        <ul className="management-summary-list">
                             {managedDocs.map((doc, idx) => (
                                 <li key={idx}>• {doc.name}</li>
                             ))}
                         </ul>
-                        <p><strong>Total Gestión:</strong> S/ {totalManagement.toFixed(2)}</p>
+                        <div className="management-total-row">
+                            <strong>Inversión total:</strong> S/ {totalManagement.toFixed(2)}
+                        </div>
                     </div>
                 )}
             </div>
