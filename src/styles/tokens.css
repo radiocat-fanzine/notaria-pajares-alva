@@ -1,0 +1,71 @@
+:root {
+    /* Brand Colors (Updated Palette) */
+    --color-primary: #3E3764;        /* Notary Blue */
+    --color-primary-light: #7B89A8;  /* Steel Blue  */
+    --color-secondary: #D0D5D6;      /* Neutral Gray */
+    --color-surface: #F5F5F0;        /* Bone / Off-white */
+    --color-white: #FFFFFF;
+    --color-dark: #1F1B33;
+    --color-error: #B00020;          /* Essential for validation */
+
+    /* Typography */
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Spacing Scale (Keeping your original logic) */
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+
+    /* Geometric Architectural Pattern */
+    --pattern-geometry: 
+        linear-gradient(135deg, var(--color-secondary) 25%, transparent 25%) -20px 0,
+        linear-gradient(225deg, var(--color-secondary) 25%, transparent 25%) -20px 0,
+        linear-gradient(315deg, var(--color-secondary) 25%, transparent 25%),
+        linear-gradient(45deg, var(--color-secondary) 25%, transparent 25%);
+    --pattern-size: 40px 40px;
+    
+    /* Effects */
+    --shadow-sm: 0 2px 4px rgba(62, 55, 100, 0.05);
+    --shadow-md: 0 4px 12px rgba(62, 55, 100, 0.1);
+}
+
+/* Global Reset & Base */
+body {
+    background-color: var(--color-surface); /* Fondo Hueso */
+    color: var(--color-primary);
+    font-family: var(--font-main);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Semantic Utility Classes */
+.bg-geometric-overlay {
+    background-image: var(--pattern-geometry);
+    background-size: var(--pattern-size);
+    opacity: 0.06;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-md);
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%; /* Mobile First default */
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-light);
+}
+
+.card {
+    background-color: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-secondary);
+}
