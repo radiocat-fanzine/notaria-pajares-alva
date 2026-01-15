@@ -10,6 +10,13 @@
     background-color: var(--color-surface);
 }
 
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
 .pre-cita-content {
     position: relative;
     z-index: 1;
@@ -41,19 +48,58 @@
     border: 1px solid var(--color-secondary);
 }
 
-/* --- Requisitos y Listas (Paso 2 Renovado) --- */
-.req-list {
-    margin: var(--space-md) 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.step-indicator {
+    color: var(--color-primary-light);
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: var(--space-md);
 }
 
-.req-card {
+/* --- Selección de Trámites (Paso 1) --- */
+.service-button {
+    width: 100%;
+    text-align: left;
+    padding: var(--space-md);
+    margin-bottom: var(--space-sm);
     background: var(--color-white);
     border: 1px solid var(--color-secondary);
-    border-radius: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.service-button:hover {
+    border-color: var(--color-primary-light);
+    background-color: var(--color-surface);
+}
+
+.service-title {
+    display: block;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1rem;
+}
+
+.service-desc {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-primary-light);
+    margin-top: 4px;
+}
+
+/* --- Requisitos y Listas (Paso 2) --- */
+.req-list {
+    margin: var(--space-md) 0;
+}
+
+/* NUEVAS CLASES PARA EL DISEÑO DE CARDS EN REQUISITOS */
+.req-card {
+    background: #fdfdfd;
+    border: 1px solid #eee;
     padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
     transition: all 0.2s ease;
 }
 
@@ -66,63 +112,61 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .req-item-check {
     display: flex;
-    align-items: center;
+    align-items: center; /* Alineado al centro para el nuevo row */
     gap: 12px;
-    flex: 1;
+    font-size: 0.9rem;
     cursor: pointer;
-    font-size: 0.95rem;
-    color: var(--color-primary);
-    font-weight: 500;
+    flex: 1;
 }
 
 .req-item-check input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    accent-color: var(--color-primary);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin: 0; /* Centrado en el row */
 }
 
-/* Botón Toggle de Información */
+/* Botón "Saber más" (?) */
 .btn-info-toggle {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    border: 1.5px solid var(--color-primary-light);
-    background: transparent;
-    color: var(--color-primary-light);
+    border: 1px solid var(--color-secondary);
+    background: white;
+    color: var(--color-primary);
     font-weight: bold;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s;
-    font-size: 0.85rem;
 }
 
-.btn-info-toggle:hover, .btn-info-toggle.active {
-    background-color: var(--color-primary-light);
-    color: var(--color-white);
+.btn-info-toggle.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
 }
 
 .req-info-content {
-    margin-top: 12px;
+    margin-top: 10px;
     padding-top: 10px;
-    border-top: 1px dashed var(--color-secondary);
-    font-size: 0.82rem;
-    line-height: 1.5;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.8rem;
+    line-height: 1.4;
     color: #555;
-    text-align: left;
 }
 
-/* --- Cuadro de Políticas Generales --- */
+/* Cuadro de políticas de la notaría */
 .notary-policy-box {
-    background-color: #fff9db; /* Amarillo suave para atención */
+    background-color: #fff9db;
     border-left: 4px solid #fcc419;
-    padding: 16px;
+    padding: 15px;
     margin: 20px 0;
     border-radius: 4px;
     text-align: left;
@@ -130,23 +174,19 @@
 
 .notary-policy-box h4 {
     margin: 0 0 8px 0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #856404;
-    display: flex;
-    align-items: center;
-    gap: 6px;
 }
 
 .notary-policy-box ul {
     margin: 0;
-    padding-left: 18px;
+    padding-left: 15px;
 }
 
 .notary-policy-box li {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #5f4b00;
-    margin-bottom: 6px;
-    line-height: 1.4;
+    margin-bottom: 5px;
 }
 
 .restriction-box {
@@ -156,7 +196,49 @@
     margin: var(--space-md) 0;
     font-size: 0.85rem;
     color: var(--color-dark);
-    text-align: left;
+}
+
+/* --- Calendario y Horas (Paso 3) --- */
+.date-input {
+    width: 100%;
+    padding: var(--space-md);
+    border: 1px solid var(--color-secondary);
+    border-radius: 4px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+}
+
+.time-section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-primary-light);
+    border-bottom: 1px solid var(--color-secondary);
+    padding-bottom: 4px;
+    margin: var(--space-md) 0 12px 0;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.time-slot-btn {
+    padding: 10px;
+    border: 1px solid var(--color-secondary);
+    background: var(--color-white);
+    border-radius: 4px;
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.time-slot-btn.selected {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
 }
 
 /* --- Botones de Navegación --- */
@@ -179,12 +261,11 @@
 
 .btn-primary:disabled {
     background-color: var(--color-secondary);
-    opacity: 0.6;
     cursor: not-allowed;
 }
 
 .btn-secondary {
-    background: var(--color-white);
+    background: none;
     border: 1px solid var(--color-secondary);
     color: var(--color-primary);
     padding: var(--space-md);
@@ -193,7 +274,7 @@
     flex: 1;
 }
 
-/* --- Títulos de Paso --- */
+/* --- Utilidades de Texto --- */
 .step-title {
     color: var(--color-primary);
     font-size: 1.25rem;
@@ -206,7 +287,14 @@
     margin-bottom: 1.5rem;
 }
 
-/* --- Inputs y Formularios --- */
+.error-text {
+    color: var(--color-error);
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* Inputs */
+
 .form-group {
     margin-bottom: var(--space-md);
     text-align: left;
@@ -226,9 +314,62 @@
     border: 1px solid var(--color-secondary);
     border-radius: 4px;
     font-size: 1rem;
+    transition: border-color 0.2s;
 }
 
-/* --- Éxito y WhatsApp --- */
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.input-error {
+    border-color: var(--color-error);
+}
+
+/* Mensaje de exito */
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem;
+}
+
+.success-box {
+    background-color: var(--color-surface);
+    border: 1px dashed var(--color-primary-light);
+    margin-bottom: 2rem;
+}
+
+.next-steps {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.next-steps h3 {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.next-steps ul {
+    font-size: 0.8rem;
+    color: var(--color-primary-light);
+    padding-left: 1.2rem;
+}
+
+.button-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .btn-whatsapp {
     background-color: #25D366;
     color: white;
@@ -236,8 +377,6 @@
     border-radius: 4px;
     text-decoration: none;
     font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    display: block;
+    text-align: center;
 }
