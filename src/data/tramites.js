@@ -12,15 +12,18 @@ export const tramitesData = [
             },
             { 
                 name: 'Copia Certificada de Partida de Defunción', 
-                info: 'Original/Actualizada (máx. 2 meses). Si es de RENIEC, la notaría puede gestionarla por S/13 (No aplica a menores de edad). Partidas municipales pasan por verificación de veracidad.' 
+                info: 'Original/Actualizada (máx. 2 meses). Si es de RENIEC, la notaría puede gestionarla por S/13 (No aplica a menores de edad). Partidas municipales pasan por verificación de veracidad.',
+                canBeManaged: true 
             },
             { 
                 name: 'Copia Certificada de Partidas de Nacimiento de herederos', 
-                info: 'Original/Actualizada (máx. 2 meses). La notaría puede gestionar partidas de mayores de edad por S/13. No se gestionan partidas de menores.' 
+                info: 'Original/Actualizada (máx. 2 meses). La notaría puede gestionar partidas de mayores de edad por S/13. No se gestionan partidas de menores.',
+                canBeManaged: true
             },
             { 
                 name: 'Certificados Negativos de Sucesión y Testamento', 
-                info: 'Vigencia máx. 3 meses. Puedes cotizarlos con nuestro counter al 949 964 400 o tramitarlos en SUNARP (Av. Larco).' 
+                info: 'Vigencia máx. 3 meses. Puedes cotizarlos con nuestro counter al 949 964 400 o tramitarlos en SUNARP (Av. Larco).',
+                canBeManaged: true
             },
             { 
                 name: 'Relación de bienes (Copia Literal o Tarjetas)', 
@@ -28,7 +31,8 @@ export const tramitesData = [
             },
             { 
                 name: 'Partida de Matrimonio (Si aplica)', 
-                info: 'Original/Actualizada (máx. 2 meses). Necesaria para incluir al cónyuge como heredero.' 
+                info: 'Original/Actualizada (máx. 2 meses). Necesaria para incluir al cónyuge como heredero.',
+                canBeManaged: true
             }
         ],
         notes: 'Basta que firme un heredero al inicio. Gestión de partidas digitales: S/13 cada una.'
@@ -45,11 +49,13 @@ export const tramitesData = [
             },
             { 
                 name: 'Partida a rectificar', 
-                info: 'Original/Actualizada (máx. 2 meses). Es el documento que contiene el error. Si es digital de RENIEC, podemos gestionarla por S/13 (Solo mayores de edad). Partidas municipales pasan por verificación de veracidad.' 
+                info: 'Original/Actualizada (máx. 2 meses). Es el documento que contiene el error. Si es digital de RENIEC, podemos gestionarla por S/13 (Solo mayores de edad). Partidas municipales pasan por verificación de veracidad.',
+                canBeManaged: true
             },
             { 
                 name: 'Partida de sustento', 
-                info: 'Original/Actualizada (máx. 2 meses). Documento que acredita el dato correcto. Ejemplo: Tu partida de nacimiento para corregir tu partida de matrimonio.' 
+                info: 'Original/Actualizada (máx. 2 meses). Documento que acredita el dato correcto. Ejemplo: Tu partida de nacimiento para corregir tu partida de matrimonio.',
+                canBeManaged: true
             },
             { 
                 name: 'Vigencia de Poder (Si aplica)', 
@@ -70,7 +76,8 @@ export const tramitesData = [
             },
             { 
                 name: 'Certificados Negativos de Unión de Hecho', 
-                info: 'Vigencia máx. 3 meses. Se gestionan en el área de counter (949 964 400). Prueban que no tienen otra convivencia inscrita en SUNARP.' 
+                info: 'Vigencia máx. 3 meses. Se gestionan en el área de counter (949 964 400). Prueban que no tienen otra convivencia inscrita en SUNARP.',
+                canBeManaged: true
             },
             { 
                 name: 'Mínimo 2 años de convivencia comprobable', 
@@ -78,7 +85,8 @@ export const tramitesData = [
             },
             { 
                 name: 'Certificado Domiciliario Notarial', 
-                info: 'Se gestiona en counter (949 964 400). Un representante de la notaría verificará su convivencia en el domicilio de Trujillo.' 
+                info: 'Se gestiona en counter (949 964 400). Un representante de la notaría verificará su convivencia en el domicilio de Trujillo.',
+                canBeManaged: true
             },
             { 
                 name: '2 Testigos (No familiares)', 
@@ -86,7 +94,8 @@ export const tramitesData = [
             },
             { 
                 name: 'Partidas de nacimiento de hijos (Si aplica)', 
-                info: 'Original/Actualizada (máx. 2 meses). La notaría puede gestionar partidas digitales de hijos mayores de edad por S/13.' 
+                info: 'Original/Actualizada (máx. 2 meses). La notaría puede gestionar partidas digitales de hijos mayores de edad por S/13.',
+                canBeManaged: true
             }
         ],
         notes: 'Libertad de estado obligatoria. El cambio de testigos anula el trámite pagado e inicia uno nuevo.'

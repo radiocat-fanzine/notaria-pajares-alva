@@ -8,6 +8,24 @@
     --color-dark: #1F1B33;
     --color-error: #B00020;          /* Essential for validation */
 
+    /* SEMANTIC TOKENS: ESTADOS */
+    --color-success: #2e7d32;       /* Verde para documentos listos */
+    --color-success-bg: #f1f8e9;    /* Fondo sutil éxito */
+        
+    --color-info: #1565c0;          /* Azul para Gestión Notarial */
+    --color-info-bg: #e3f2fd;       /* Fondo sutil gestión */
+        
+    --color-warning: #fbc02d;       /* Amarillo para Avisos */
+    --color-warning-bg: #fff9c4;    /* Fondo sutil avisos */
+    --color-warning-border: #fbc02d;
+
+    --color-error-light: #fff4f4;   /* Fondo para restricciones/errores */
+    /* --color-error ya lo tienes definido según tu CSS previo */
+
+    /* UI TOKENS: ESTRUCTURA */
+    --color-border-light: #eeeeee;  /* Para separadores (hr) y bordes de cards */
+    --color-text-muted: #666666;    /* Para descripciones secundarias */
+    
     /* Typography */
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
 
