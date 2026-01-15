@@ -1,12 +1,15 @@
 // src/App.jsx
+import Navbar from './components/Navbar';
 import PreCita from './pages/PreCita';
 
 function App() {
   return (
-    <main className="App">
-      {/* Navbar institucional más adelante */}
-      <PreCita />
-    </main>
+    <div className="App">
+      <Navbar />
+      <main className="content-wrapper">
+        <PreCita />
+      </main>
+    </div>
   );
 }
 
