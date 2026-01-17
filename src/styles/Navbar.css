@@ -12,6 +12,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
 }
 
+/* Navbar: Logo y Botón a los extremos */
 .nav-container {
     width: 100%;
     max-width: 1200px;
@@ -62,6 +63,10 @@
     font-size: 1rem;
 }
 
+.hamburger-button{
+    display: none;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -84,7 +89,7 @@
     text-decoration: none;
     opacity: 0.9;
     
-    /* EFECTO BISELADO / PAPELERÍA */
+    /* EFECTO BISELADO */
     padding: 8px 16px; 
     border-radius: 50px;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -103,6 +108,7 @@
     
     .navbar {
         height: 80px;
+        overflow: visible;
     }
 
     .hamburger-button {
@@ -112,13 +118,15 @@
         border: none;
         color: var(--color-secondary);
         cursor: pointer;
+        z-index: 1001;
+        position: relative;
     }
 
     .nav-links { 
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         position: absolute;
-        top: 80px; /* Tu altura de nav actual */
+        top: 80px;
         left: 0;
         width: 100%;
         padding: 40px 0;
@@ -128,7 +136,7 @@
         visibility: hidden;
         opacity: 0;
         transform: translateY(-10px);
-        transition: all 0.4s ease;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         
         /* --- TEXTURA Y FONDO --- */
         background: linear-gradient(180deg, 
@@ -138,18 +146,13 @@
         border-bottom: var(--border-main);
     }
 
-    .nav-links.mobile-open {
-        display: flex;
-    }
-
-    /*.hide-text-mobile {
-        display: none;
-    }*/
-
     .nav-location-tag {
         padding: 4px 8px;
     }
 
+    .navbar .nav-location-tag {
+        display: none;
+    }
     .location-text {
         font-size: 0.65rem; 
     }

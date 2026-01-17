@@ -20,19 +20,19 @@ const Navbar = () => {
                     <img src={logo} alt="Logo" className="nav-logo" />
                 </div>
 
-                {/* En móvil se ve la ubicación Y la hamburguesa */}
-                <div className="nav-location-tag">
-                    <span className="location-icon">📍</span>
-                    <span className="location-text hide-text-mobile">Trujillo, Perú</span>
-                </div>
-
-                {/* BOTÓN HAMBURGUESA */}
+                {/* BOTÓN HAMBURGUESA: Ahora solo compite con el logo */}
                 <button className="hamburger-button" onClick={() => setIsOpen(!isOpen)}>
                     {isOpen ? '✕' : '☰'} 
                 </button>
                 
-                {/* LINKS NAV BAR */}
-                <ul className={`nav-links ${isOpen ? 'mobile-open' : ''}`}>
+                {/* MENÚ DESPLEGABLE */}
+                <ul className={`nav-links ${isOpen ? 'nav-open' : ''}`}>
+                    {/* Ubicación agrupada dentro del menú en móvil */}
+                    <li className="nav-location-mobile">
+                        <span className="location-icon">📍</span>
+                        <span className="location-text">Trujillo, Perú</span>
+                    </li>
+                    
                     <li><a href="#inicio" onClick={() => setIsOpen(false)}>Portal</a></li>
                     <li><a href="#servicios" onClick={() => setIsOpen(false)}>Servicios</a></li>
                     <li><a href="#pre-cita" onClick={() => setIsOpen(false)}>Pre-Cita</a></li>
