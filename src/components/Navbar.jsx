@@ -7,17 +7,19 @@ const Navbar = () => {
         <div className="nav-container">
             <div className="nav-brand">
             <img src={logo} alt="Logo Notaría Pajares Alva" className="nav-logo" />
-            <span className="nav-title">Pajares Alva</span>
             </div>
             
             <ul className="nav-links">
-            <li><a href="#tramites">Trámites</a></li>
-            <li><a href="#nosotros">Institucional</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#inicio">Portal</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#pre-cita">Pre-Cita</a></li>
+                <li><a href="#notaria">La Notaría</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
 
             <div className="nav-actions">
-            <button className="btn-nav-outline">Ubicación</button>
+                {/*sede única */}
+                <button className="btn-nav-outline">Ubicación</button>
             </div>
         </div>
         </nav>

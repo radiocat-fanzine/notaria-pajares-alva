@@ -1,99 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+/* Importación de tipografías elegantes */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;600&display=swap');
 
 :root {
-    /* Brand Colors (Updated Palette) */
+    /* --- BRAND COLORS (Base Inamovible) --- */
     --color-primary: #2D3968;        /* Notary Blue */
-    --color-primary-light: #7B89A8;  /* Steel Blue  */
-    --color-secondary: #D0D5D6;      /* Neutral Gray */
+    --color-primary-light: #7B89A8;  /* Steel Blue */
+    --color-secondary: #D0D5D6;      /* Neutral Gray / Silver */
     --color-surface: #F5F5F0;        /* Bone / Off-white */
-    --color-white: #FFFFFF;
-    --color-dark: #1F1B33;
-    --color-error: #B00020;          /* Essential for validation */
+    --color-white: #FFFFFF;          /* Pure White */
+    --color-dark: #1F1B33;           /* Deep Midnight */
 
-    /* SEMANTIC TOKENS: ESTADOS */
-    --color-success: #2e7d32;       /* Verde para documentos listos */
-    --color-success-bg: #f1f8e9;    /* Fondo sutil éxito */
-        
-    --color-info: #1565c0;          /* Azul para Gestión Notarial */
-    --color-info-bg: #e3f2fd;       /* Fondo sutil gestión */
-        
-    --color-warning: #fbc02d;       /* Amarillo para Avisos */
-    --color-warning-bg: #fff9c4;    /* Fondo sutil avisos */
-    --color-warning-border: #fbc02d;
+    /* --- SEMANTIC TOKENS (Paleta Análoga & Elegante) --- */
+    /* Success: Azul Cobalto (Documento listo) en lugar de verde */
+    --color-success: #3E4A89; 
+    --color-success-bg: #E8EAF3;
+    
+    /* Info: Steel Blue (Gestión) */
+    --color-info: var(--color-primary-light);
+    --color-info-bg: #F0F2F5;
+    
+    /* Warning: Tono Dorado/Arena (Avisos) en lugar de amarillo */
+    --color-warning: #997B46; 
+    --color-warning-bg: #F9F4E8;
+    --color-warning-border: #D4C3A3;
 
-    --color-error-light: #fff4f4;   /* Fondo para restricciones/errores */
-    /* --color-error ya lo tienes definido según tu CSS previo */
+    /* Error: Rojo Borgoña (Legal/Restricción) */
+    --color-error: #8B1A1A;
+    --color-error-bg: #FBEAEA;
 
-    /* UI TOKENS: ESTRUCTURA */
-    --color-border-light: #eeeeee;  /* Para separadores (hr) y bordes de cards */
-    --color-text-muted: #666666;    /* Para descripciones secundarias */
+    /* --- UI TOKENS: ESTRUCTURA & BORDES --- */
+    /* Usando tus Alphas Hexadecimales */
+    --color-border-alpha: #7B89A84D;       /* Tu borde 30% alpha */
+    --color-border-hover-alpha: #2D396866; /* 40% alpha para hover */
+    
+    --border-main: 1px solid var(--color-border-alpha);
+    --border-hover: 1px solid var(--color-border-hover-alpha);
+    --border-light: 1px solid #E2E2E2;
 
-    /* Typography */
-    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    /* --- TYPOGRAPHY --- */
+    --font-main: 'Inter', sans-serif;
+    --font-serif: 'Bodoni Moda', serif;
 
-    /* Spacing Scale (Keeping your original logic) */
+    /* --- NAVIGATION --- */
+    --nav-height: 120px;
+    --nav-bg: var(--color-primary);
+    --nav-text: var(--color-secondary);
+    --nav-text-active: var(--color-white);
+
+    /* --- SPACING & EFFECTS --- */
     --space-sm: 8px;
     --space-md: 16px;
     --space-lg: 32px;
     --space-xl: 48px;
-
-    /* Geometric Architectural Pattern */
-    --pattern-geometry: 
-        linear-gradient(135deg, var(--color-secondary) 25%, transparent 25%) -20px 0,
-        linear-gradient(225deg, var(--color-secondary) 25%, transparent 25%) -20px 0,
-        linear-gradient(315deg, var(--color-secondary) 25%, transparent 25%),
-        linear-gradient(45deg, var(--color-secondary) 25%, transparent 25%);
-    --pattern-size: 40px 40px;
     
-    /* Effects */
-    --shadow-sm: 0 2px 4px rgba(62, 55, 100, 0.05);
-    --shadow-md: 0 4px 12px rgba(62, 55, 100, 0.1);
+    --shadow-sm: 0 2px 8px rgba(31, 27, 51, 0.05);
+    --shadow-md: 0 8px 20px rgba(31, 27, 51, 0.08);
 
-    /* Typography Update */
-    --font-serif: 'Playfair Display', serif; /* Para títulos institucionales */
-
-    /* UI Tokens: Navbar (Basados en tus Brand Colors) */
-    --nav-bg: var(--color-primary);       /* #3E3764 */
-    --nav-text: var(--color-secondary);   /* #D0D5D6 (Gris claro que pediste) */
-    --nav-text-active: var(--color-white);
-    }
-
-/* Global Reset & Base */
-body {
-    background-color: var(--color-surface); /* Fondo Hueso */
-    color: var(--color-primary);
-    font-family: var(--font-main);
-    margin: 0;
-    line-height: 1.5;
-}
-
-/* Semantic Utility Classes */
-.bg-geometric-overlay {
-    background-image: var(--pattern-geometry);
-    background-size: var(--pattern-size);
-    opacity: 0.06;
-}
-
-.btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: var(--space-md);
-    border: none;
-    border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    width: 100%; /* Mobile First default */
-}
-
-.btn-primary:hover {
-    background-color: var(--color-primary-light);
-}
-
-.card {
-    background-color: var(--color-white);
-    padding: var(--space-lg);
-    border-radius: 8px;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--color-secondary);
+    /* Pattern */
+    --pattern-geometry: 
+        linear-gradient(135deg, var(--color-primary-light) 25%, transparent 25%) -10px 0,
+        linear-gradient(225deg, var(--color-primary-light) 25%, transparent 25%) -10px 0,
+        linear-gradient(315deg, var(--color-primary-light) 25%, transparent 25%),
+        linear-gradient(45deg, var(--color-primary-light) 25%, transparent 25%);
 }

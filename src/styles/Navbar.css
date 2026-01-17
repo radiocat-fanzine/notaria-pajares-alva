@@ -1,14 +1,16 @@
 .navbar {
     background-color: var(--color-primary);
-    height: 140px;
+    height: 120px; 
     width: 100%;
     display: flex;
-    align-items: center; 
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
     box-shadow: var(--shadow-md);
+    /* El borde inferior sutil para delimitar la zona azul */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
 }
 
 .nav-container {
@@ -21,66 +23,63 @@
     padding: 0 var(--space-lg);
 }
 
-.nav-brand {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    position: relative;
-}
-
-.nav-logo {
-    height: 100px; 
-    width: auto;
-    transform: translateY(0); 
-    
-    z-index: 10000; 
-    filter: brightness(0) invert(1);
-    display: block;
-    object-fit: contain;
-}
-.nav-title {
-    font-family: var(--font-serif);
-    color: var(--color-secondary); 
-    font-size: 1.5rem;
-    line-height: 1;
-}
-
 .nav-links {
     display: flex;
     list-style: none;
-    gap: var(--space-lg);
+    gap: var(--space-md); /* Reducimos un poco el gap para que el fondo del hover no choque */
+    align-items: center;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
-    font-family: var(--font-main);
-    color: var(--color-secondary); 
+    font-family: var(--font-serif); 
+    color: var(--color-secondary);
+    text-transform: capitalize;
+    letter-spacing: 0.2px;
+    font-size: 1.1rem;
+    font-weight: 400;
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+    opacity: 0.9;
+    
+    /* EFECTO BISELADO / PAPELERÍA */
+    padding: 10px 20px; /* Espacio para el fondo que crecerá */
+    border-radius: 50px; /* Redondeado sutil estilo cápsula */
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Curva suave de crecimiento */
+    border: 1px solid transparent; /* Reserva de espacio para el borde */
 }
 
 .nav-links a:hover {
     opacity: 1;
-    color: var(--color-white); 
+    color: var(--color-white);
+    /* Fondo sutil que parece un relieve hacia adentro (biselado) */
+    background-color: rgba(255, 255, 255, 0.05); 
+    /* Borde muy fino que ayuda a la sensación de profundidad */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    transform: translateY(-1px); /* Pequeño levante */
 }
 
 .btn-nav-outline {
     background: transparent;
-    border: 1px solid var(--color-primary-light);
+    border: var(--border-main); 
     color: var(--color-secondary);
-    padding: 6px 16px;
+    padding: 10px 24px;
     border-radius: 4px;
     font-family: var(--font-main);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .btn-nav-outline:hover {
-    background: var(--color-primary-light);
+    background: rgba(255, 255, 255, 0.1); /* Hover coherente con los links */
     color: var(--color-white);
+    border: var(--border-hover);
 }
 
 @media (max-width: 768px) {
