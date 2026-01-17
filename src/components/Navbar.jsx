@@ -5,6 +5,14 @@ import logo from '../assets/logo-notaria.png';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [isOpen]);
+
     return (
         <nav className="navbar">
             <div className="nav-container">
