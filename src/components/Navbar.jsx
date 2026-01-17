@@ -29,8 +29,10 @@ const Navbar = () => {
                 <ul className={`nav-links ${isOpen ? 'nav-open' : ''}`}>
                     {/* Ubicación agrupada dentro del menú en móvil */}
                     <li className="nav-location-mobile">
-                        <span className="location-icon">📍</span>
-                        <span className="location-text">Trujillo, Perú</span>
+                        <div className="nav-location-tag">
+                            <span className="location-icon">📍</span>
+                            <span className="location-text">Trujillo, Perú</span>
+                        </div>
                     </li>
                     
                     <li><a href="#inicio" onClick={() => setIsOpen(false)}>Portal</a></li>

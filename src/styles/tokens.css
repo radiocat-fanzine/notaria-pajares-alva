@@ -35,7 +35,7 @@
     --color-border-hover-alpha: #2D396866; /* 40% alpha para hover */
     
     --border-main: 1px solid var(--color-border-alpha);
-    --border-hover: 1px solid var(--color-border-hover-alpha);
+    --border-hover: 1px solid var(--color-primary);
     --border-light: 1px solid #E2E2E2;
 
     /* --- TYPOGRAPHY --- */
