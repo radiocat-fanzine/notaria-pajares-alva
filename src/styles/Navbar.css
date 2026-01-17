@@ -100,5 +100,26 @@
 }
 
 @media (max-width: 992px) {
-    .nav-links, .nav-location-tag { display: none; }
+    
+    @media (max-width: 768px) {
+    .navbar {
+        height: 80px;
+    }
+
+    .nav-links { 
+        display: none;
+    }
+
+    .nav-location-tag {
+        padding: 4px 8px;
+    }
+
+    .location-text {
+        font-size: 0.65rem; 
+    }
+
+    .nav-logo {
+        max-height: 50px; 
+    }
+}
 }
