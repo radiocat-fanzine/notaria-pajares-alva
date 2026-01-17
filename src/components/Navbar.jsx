@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import '../styles/Navbar.css';
 import logo from '../assets/logo-notaria.png';
 
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <nav className="navbar">
             <div className="nav-container">
@@ -9,17 +12,23 @@ const Navbar = () => {
                     <img src={logo} alt="Logo" className="nav-logo" />
                 </div>
 
-                <a href="#contacto" className="nav-location-tag">
+                {/* En móvil se ve la ubicación Y la hamburguesa */}
+                <div className="nav-location-tag">
                     <span className="location-icon">📍</span>
-                    <span className="location-text">Trujillo / Huanchaco, Perú</span>
-                </a>
+                    <span className="location-text hide-text-mobile">Trujillo, Perú</span>
+                </div>
+
+                {/* BOTÓN HAMBURGUESA */}
+                <button className="hamburger-button" onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen ? '✕' : '☰'} 
+                </button>
                 
-                <ul className="nav-links">
-                    <li><a href="#inicio">Portal</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#pre-cita">Pre-Cita</a></li>
-                    <li><a href="#notaria">La Notaría</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                {/* LINKS NAV BAR */}
+                <ul className={`nav-links ${isOpen ? 'mobile-open' : ''}`}>
+                    <li><a href="#inicio" onClick={() => setIsOpen(false)}>Portal</a></li>
+                    <li><a href="#servicios" onClick={() => setIsOpen(false)}>Servicios</a></li>
+                    <li><a href="#pre-cita" onClick={() => setIsOpen(false)}>Pre-Cita</a></li>
+                    <li><a href="#contacto" onClick={() => setIsOpen(false)}>Contacto</a></li>
                 </ul>
             </div>
         </nav>

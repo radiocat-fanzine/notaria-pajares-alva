@@ -23,10 +23,16 @@
     width: 100%;
     max-width: 520px;
     margin: 0 auto;
-    padding-top: 130px; 
-    padding-bottom: 40px;
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-sm);
     padding-left: var(--space-md);
     padding-right: var(--space-md);
+}
+
+.header-main {
+    text-align: center;
+    margin-bottom: var(--space-md);
+    padding-bottom: 0;
 }
 
 .header-eyebrow {
@@ -39,12 +45,6 @@
     color: var(--color-primary-light);
     margin-bottom: 8px;
     opacity: 0.8;
-}
-
-.header-main {
-    text-align: center;
-    margin-bottom: var(--space-md);
-    padding-bottom: 0;
 }
 
 .header-main h1 {
@@ -73,7 +73,7 @@
     border-radius: 8px;
     box-shadow: var(--shadow-md);
     border: var(--border-main);
-    margin-top: 0;
+    margin-top: var(--space-md);
 }
 
 .step-indicator {

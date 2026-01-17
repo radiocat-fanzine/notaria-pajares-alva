@@ -99,14 +99,39 @@
     transform: translateY(-1px);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     
-    @media (max-width: 768px) {
     .navbar {
         height: 80px;
     }
 
+    .hamburger-button {
+        display: block;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: var(--color-secondary);
+        cursor: pointer;
+    }
+
     .nav-links { 
+        display: none;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-primary);
+        flex-direction: column;
+        padding: 40px 0;
+        text-align: center;
+        border-bottom: var(--border-main);
+    }
+
+    .nav-links.mobile-open {
+        display: flex;
+    }
+
+    .hide-text-mobile {
         display: none;
     }
 
@@ -121,5 +146,5 @@
     .nav-logo {
         max-height: 50px; 
     }
-}
+
 }
