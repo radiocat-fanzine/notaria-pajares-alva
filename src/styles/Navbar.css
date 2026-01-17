@@ -99,18 +99,6 @@
     transform: translateY(-1px);
 }
 
-.nav-links.nav-open::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(10, 25, 47, 0.4); /* Color primario con transparencia */
-        backdrop-filter: blur(8px); /* EL BLUR */
-        z-index: -1;
-    }
-
 @media (max-width: 768px) {
     
     .navbar {
@@ -128,32 +116,26 @@
 
     .nav-links { 
         display: flex;
-        visibility: hidden;
-        opacity: 0;
-
+        flex-direction: column;
         position: absolute;
-        top: 80px;
+        top: 80px; /* Tu altura de nav actual */
         left: 0;
         width: 100%;
-        flex-direction: column;
         padding: 40px 0;
         text-align: center;
+        
+        /* Estado inicial (escondido) */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.4s ease;
         
         /* --- TEXTURA Y FONDO --- */
         background: linear-gradient(180deg, 
             var(--color-primary) 0%, 
             #0d213f 100%);
-        
-        /* EL BLUR de fondo */
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-
-        /* --- BISELADO Y SOMBRA --- */
+        z-index: 1000;
         border-bottom: var(--border-main);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        transform: translateY(-10px);
     }
 
     .nav-links.mobile-open {
@@ -176,11 +158,26 @@
         max-height: 50px; 
     }
 
-    /* Cuando el menú está abierto */
+    /* EL BLUR: Cuando el menú está abierto */
     .nav-links.nav-open {
         visibility: visible;
         opacity: 1;
-        transform: translateY(0); /* Cae suavemente a su posición */
+        transform: translateY(0);
+    }
+
+    /* Efecto de desenfoque detrás del menú */
+    .nav-links.nav-open::before {
+        content: '';
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.3); 
+        z-index: -1; 
+        pointer-events: none;
     }
 
     .nav-links li {
@@ -190,30 +187,31 @@
 
     .nav-links a {
         display: inline-block;
-        width: 80%;
+        width: 85%;
+        margin: 10px 0;
+        padding: 15px;
         font-family: var(--font-serif);
         color: var(--color-secondary);
         font-size: 1.3rem;
-        padding: 15px;
         text-decoration: none;
         border-radius: 8px;
-        transition: all 0.3s ease;
         
         /* BISELADO INICIAL:*/
         border: 1px solid rgba(255, 255, 255, 0.05);
         background: rgba(255, 255, 255, 0.02);
         box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
     }
 
     /* EFECTO BISELADO RESALTADO EN HOVER */
     .nav-links a:hover {
         color: var(--color-white);
-        background: rgba(255, 255, 255, 0.07);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--color-border-alpha);
         /* Efecto de relieve: sombra exterior y luz interior */
         box-shadow: 
-            0 4px 12px rgba(0, 0, 0, 0.2), 
+            0 4px 15px rgba(0, 0, 0, 0.3), 
             inset 1px 1px 0px rgba(255, 255, 255, 0.1);
-        border: 1px solid var(--color-border-alpha);
-        transform: scale(1.02);
+        transform: translateY(-2px);
     }
 }
