@@ -6,8 +6,9 @@
     --color-primary: #2D3968;        /* Notary Blue */
     --color-primary-light: #7B89A8;  /* Steel Blue */
     --color-secondary: #D0D5D6;      /* Neutral Gray / Silver */
+    --color-text-inverted: #f7f7f7;  /* Subtle gray */
     --color-surface: #F5F5F0;        /* Bone / Off-white */
-    --color-white: #FFFFFF;          /* Pure White */
+    --color-white: #f7f7f7;          /* Pure White */
     --color-dark: #1F1B33;           /* Deep Midnight */
 
     /* --- SEMANTIC TOKENS (Paleta Análoga & Elegante) --- */
@@ -42,9 +43,10 @@
     --font-serif: 'Bodoni Moda', serif;
 
     /* --- NAVIGATION --- */
-    --nav-height: 120px;
+    --nav-height: 100px;
+    --nav-logo-height: 70px;
     --nav-bg: var(--color-primary);
-    --nav-text: var(--color-secondary);
+    --nav-text: var(--color-text-inverted);
     --nav-text-active: var(--color-white);
 
     /* --- SPACING & EFFECTS --- */
@@ -62,4 +64,10 @@
         linear-gradient(225deg, var(--color-primary-light) 25%, transparent 25%) -10px 0,
         linear-gradient(315deg, var(--color-primary-light) 25%, transparent 25%),
         linear-gradient(45deg, var(--color-primary-light) 25%, transparent 25%);
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-surface);
+    color: var(--color-primary);
 }

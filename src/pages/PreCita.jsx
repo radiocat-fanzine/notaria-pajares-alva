@@ -18,7 +18,11 @@ const PreCita = () => {
             
             <div className="pre-cita-content">
                 <header className="header-main">
-                    <h1>Notaría Pajares Alva</h1>
+                    <span className="header-eyebrow">Gestión Notarial</span>
+                    <h1>Agenda una Pre-cita</h1>
+                    <p className="header-instruction">
+                        Selecciona un trámite para conocer los requisitos y disponibilidad.
+                    </p>
                 </header>
 
                 <main className="main-card">
